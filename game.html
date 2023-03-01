@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cryptex - AboutUs</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="images/cryptologo.png" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <style>
+    select {
+  padding: 12px 16px;
+  font-size: 16px;
+  background-color: #fff;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.gameContainer {
+        width: 800px;
+        height: 400px;
+        border: 1px solid black;
+        display: flex;
+        background-color: #fff;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+      .cryptoIcon {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        float: left;
+        margin-right: 10px;
+        cursor: pointer;
+        opacity: 0.5;
+      }
+      .cryptoName {
+        width: 150px;
+        height: 50px;
+        color: black;
+        border: 1px solid black;
+        text-align: center;
+        line-height: 50px;
+      }
+      #finishButton{
+        background-color: rgb(247, 154, 41);
+        color: black;
+        cursor: pointer;
+        align-items: center; 
+        padding: 10px;
+        border-radius: 10px;
+      }
+      .score {
+        text-align: center;
+        font-weight: bold;
+        color:green;
+      }
+  </style>
+  <script>
+    var score = 0;
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+    
+    function drag(ev) {
+      document.querySelectorAll(".cryptoIcon").forEach(function(icon) {
+        icon.style.opacity = 0.5;
+      });
+      ev.target.style.opacity = 1;
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+    
+    function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      var crypto = document.getElementById(data);
+      var targetId = ev.target.id;
+      var target = document.getElementById(targetId);
+      if (target.getAttribute("data-crypto") === data) {
+        crypto.style.visibility = "hidden";
+        target.style.visibility = "hidden";
+        score++;
+        document.getElementById("score").innerHTML = "Score: " + score;
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="mainpage.php" class="logo">
+        <img src="images/cryptologo.png" width="32" height="32" alt="Cryptex logo">
+        Cryptex
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="mainpage.php" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="market.html" class="navbar-link" data-nav-link>Market Updates</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="trending.html" class="navbar-link" data-nav-link>Trending Coins</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="converter.html" class="navbar-link" data-nav-link>Converter</a>
+          </li>
+          <li class="navbar-item">
+            <a href="markettrend.html" class="navbar-link" data-nav-link>Market Trend</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="game.html" class="navbar-link active" data-nav-link>Games</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="search.html" class="navbar-link" data-nav-link>Search</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="aboutus.html" class="navbar-link" data-nav-link>About us</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="logout.php" class="navbar-link" data-nav-link>Logout</a>
+          </li>
+
+          
+        </ul>
+      </nav>
+
+      <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+      <a href="profile.php" class="btn"><i style='font-size:30px; color:#ffcc32' class='fas'>&#xf2bd;</i></a>
+
+    
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+     
+
+      
+
+
+
+
+
+      <!-- 
+        - #MARKET
+      -->
+
+      <section class="section market" aria-label="market update" data-section>
+        <div class="container">
+
+          <div class="title-wrapper">
+            <h2 class="h2 section-title">Games</h2>
+
+            
+          </div>
+
+          <div class="market-tab">
+            <h2>Drag and drop the cryptocurrency symbols with their names.</h2>
+            <h3>Good luck!</h3>
+<br>
+            <table class="market-table">
+
+              <thead class="table-head">
+
+                
+
+              </thead>
+            
+                </tr>
+                
+                <tr class="table-row">
+
+                  <td class="table-data">
+                    <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                      
+                  </td>
+
+                </tr>
+                
+                    <div class="gameContainer">
+                        <div>
+                          <img id="btc" src="assets/games/btc.png" draggable="true" ondragstart="drag(event)" class="cryptoIcon">
+                          <img id="eth" src="assets/games/eth.png" draggable="true" ondragstart="drag(event)" class="cryptoIcon">
+                          <img id="xrp" src="assets/games/xrp.png" draggable="true" ondragstart="drag(event)" class="cryptoIcon">
+                          <img id="avax" src="assets/games/avax.png" draggable="true" ondragstart="drag(event)" class="cryptoIcon">
+                          <img id="doge" src="assets/games/doge.png" draggable="true" ondragstart="drag(event)" class="cryptoIcon">
+                          <img id="neu" src="assets/games/neu.png" draggable="true" ondragstart="drag(event)" class="cryptoIcon">
+                          <img id="bnb" src="assets/games/bnb.png" draggable="true" ondragstart="drag(event)" class="cryptoIcon">
+                          <img id="sol" src="assets/games/sol.png" draggable="true" ondragstart="drag(event)" class="cryptoIcon">
+                        </div>
+                        <div>
+                          <div id="dogeName" class="cryptoName" data-crypto="doge" ondrop="drop(event)" ondragover="allowDrop(event)">DogeCoin</div>
+                          <div id="ethName" class="cryptoName" data-crypto="eth" ondrop="drop(event)" ondragover="allowDrop(event)">Ethereum</div>
+                          <div id="neuName" class="cryptoName" data-crypto="neu" ondrop="drop(event)" ondragover="allowDrop(event)">Neutrino</div>
+                          <div id="xrpName" class="cryptoName" data-crypto="xrp" ondrop="drop(event)" ondragover="allowDrop(event)">Ripple</div>
+                          <div id="solName" class="cryptoName" data-crypto="sol" ondrop="drop(event)" ondragover="allowDrop(event)">Solana</div>
+                          <div id="btcName" class="cryptoName" data-crypto="btc" ondrop="drop(event)" ondragover="allowDrop(event)">Bitcoin</div>
+                          <div id="bnbName" class="cryptoName" data-crypto="bnb" ondrop="drop(event)" ondragover="allowDrop(event)">BinanceCoin</div>
+                          <div id="avaxName" class="cryptoName" data-crypto="avax" ondrop="drop(event)" ondragover="allowDrop(event)">Avalanche</div> 
+                        </div>
+                      </div>
+                      <br>
+                      <div class="score" id="score">Score: 0</div>
+                      <button id="finishButton">Finish Game</button>
+                    <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                      
+                    </button>
+                  </td>
+
+                </tr><br>
+                <tr class="table-row">
+
+                  <td class="table-data">
+                    <div id="map"></div>
+                    <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                      
+                    </button>
+                  </td>
+
+                </tr>
+                <tr class="table-row">
+
+                  <td class="table-data">
+                    <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                      
+                    </button>
+                  </td>
+
+                </tr>
+                <tr class="table-row">
+
+                  <td class="table-data">
+                   
+                  </td>
+
+                </tr>
+                <tr class="table-row">
+
+                    <td class="table-data">
+                      <div id="map"></div>
+                      <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                        
+                      </button>
+                    </td>
+  
+                  </tr>
+                  <tr class="table-row">
+
+                    <td class="table-data">
+                     
+                      <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                        
+                      </button>
+                    </td>
+  
+                  </tr>
+                <tr class="table-row">
+
+                  <td class="table-data">
+                    <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                      
+                    </button>
+                  </td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      
+        
+
+      </div>
+    </div>
+
+  </footer>
+
+  <script>
+    document.getElementById("finishButton").addEventListener("click", function() {
+      alert("Your final score is " + score + "! Thank you for playing .");
+      location.reload();
+    });
+  </script>
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+  
+</body>
+
+</html>
