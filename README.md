@@ -1,5 +1,7 @@
 # crypto-app
-CRYPTO CURRENCY WEBSITE
+CRYPTO CURRENCY INFO WEBSITE
+This website mainly focuses on the beginners in Crypto trading. The website provides various information for the users which helps them to know about the crypto currencies and their current market values. Many beginners in crypto loose their money while trading, as they do not know the basics and the chart patterns.
+We developed this website in consideration of them, which educates them the basic of basics about the crypto trading and the coins. We have created the interface of this website in a user-friendly manner considering the age barrier.
 
 
 UI design:
