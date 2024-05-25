@@ -1,8 +1,50 @@
-# crypto-app
-CRYPTO CURRENCY INFO WEBSITE
-This website mainly focuses on the beginners in Crypto trading. The website provides various information for the users which helps them to know about the crypto currencies and their current market values. Many beginners in crypto loose their money while trading, as they do not know the basics and the chart patterns.
-We developed this website in consideration of them, which educates them the basic of basics about the crypto trading and the coins. We have created the interface of this website in a user-friendly manner considering the age barrier.
 
+# Cryptocurrency Info Application 📈💰
+
+Crypto-App is a web application built using HTML, CSS, and JavaScript that provides various features related to cryptocurrencies. It utilizes the CoinGecko APIs to fetch real-time data and perform various operations such as price prediction using LSTM, comparison of coins, and coin conversion.
+
+## Features
+
+- **Real-time Crypto Information**: Get up-to-date information about various cryptocurrencies including their prices, market caps, and trading volumes.
+  
+- **LSTM Price Prediction**: Predict future prices of cryptocurrencies using LSTM (Long Short-Term Memory) neural networks based on historical data.
+
+- **Coin Comparison**: Compare different cryptocurrencies based on various metrics such as price, market cap, and trading volume to make informed investment decisions.
+
+- **Coin Converter**: Easily convert one cryptocurrency to another based on current exchange rates.
+
+## Technologies Used
+
+- **HTML**: Structure the web pages.
+  
+- **CSS**: Style the user interface for an attractive and intuitive design.
+
+- **JavaScript**: Implement interactive features and functionality.
+
+- **CoinGecko APIs**: Fetch real-time data about cryptocurrencies.
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/crypto-app.git
+   cd crypto-app
+   ```
+
+2. Open `index.html` in your web browser to run the application locally.
+
+## Usage
+
+1. Open the application in your web browser.
+2. Explore different sections to get information about cryptocurrencies, perform price predictions, compare coins, and convert coins.
+
+## Contributions
+
+Contributions are welcome! If you'd like to contribute to this project, feel free to submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 UI design:
 ![image](https://user-images.githubusercontent.com/82211443/226804710-2c836a4a-dbc7-4400-84fe-f6213c70c431.png)
